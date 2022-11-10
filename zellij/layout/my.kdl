@@ -1,0 +1,5 @@
+layout {
+    pane size=1{
+        plugin location="zellij:status-bar" options="lines:controls"
+      }
+  }
