@@ -1,8 +1,15 @@
 # terminal
 
+## terminal
+
+- kitty
 - zinit
-- alacritty
-- zellij
 - p10k
 - atuin
-- Dbz/kube-aliases
+- Dbz/kube - aliases
+
+## Keyboard
+
+- karabiner
+- qmk for Keycheron q2
+
