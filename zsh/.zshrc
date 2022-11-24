@@ -18,6 +18,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 
 bindkey -s ^f ". ~/script/finder.sh\n"
+bindkey -s ^h ". ~/script/chtsh.sh\n"
 
 # flutter
 export PATH="$PATH:$HOME/flutter/bin"
@@ -62,10 +63,12 @@ eval "$(atuin init zsh)"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 zinit wait lucid light-mode for \
+      OMZL::git.zsh \
   atinit"zicompinit; zicdreplay" \
       zdharma-continuum/fast-syntax-highlighting \
   atload"_zsh_autosuggest_start" \
       zsh-users/zsh-autosuggestions \
+      OMZP::git \
   blockf atpull'zinit creinstall -q .' \
       zsh-users/zsh-completions
 
