@@ -54,6 +54,8 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit load Dbz/kube-aliases
 eval "$(atuin init zsh)"
 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
       zdharma-continuum/fast-syntax-highlighting \
