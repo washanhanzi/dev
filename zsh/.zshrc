@@ -14,6 +14,11 @@ export NO_PROXY=localhost,127.0.0.1,::1
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
+export EDITOR='nvim'
+export VISUAL='nvim'
+
+bindkey -s ^f ". ~/script/finder.sh\n"
+
 # flutter
 export PATH="$PATH:$HOME/flutter/bin"
 
