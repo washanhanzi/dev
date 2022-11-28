@@ -12,4 +12,3 @@
 
 - karabiner
 - qmk for Keycheron q2
-
