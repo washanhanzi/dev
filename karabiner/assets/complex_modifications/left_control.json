@@ -1,0 +1,42 @@
+{
+  "title": "Change control when pressed alone ",
+  "rules": [
+    {
+      "description": "left_control is caps_lock when pressed alone",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions":[
+            {
+              "type":"device_if",
+              "identifiers":[
+                {
+                  "is_keyboard": true,
+                  "vendor_id": 1278
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "caps_lock"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
