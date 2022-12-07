@@ -21,6 +21,9 @@ alias cdf=". ~/script/finder.sh"
 bindkey -s ^f ". ~/script/code.sh\n"
 bindkey -s ^h ". ~/script/chtsh.sh\n"
 
+# Homebrew: Python
+export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
+
 # flutter
 export PATH="$PATH:$HOME/flutter/bin"
 
