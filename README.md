@@ -3,6 +3,7 @@
 ## terminal
 
 - kitty
+- amethyst
 - zinit
 - p10k
 - atuin
@@ -10,5 +11,6 @@
 
 ## Keyboard
 
+- moonlander
 - karabiner
 - qmk for Keycheron q2

@@ -1,0 +1,32 @@
+layouts:
+  - tall
+  - fullscreen
+  - wide
+  - two-pane
+
+focus-screen-1:
+  mod: mod1
+  key: s
+
+focus-screen-2:
+  mod: mod1
+  key: d
+
+focus-screen-3:
+  mod: mod1
+  key: f
+
+throw-screen-1:
+  mod: mod1
+  key: w
+
+throw-screen-2:
+  mod: mod1
+  key: e
+
+throw-screen-3:
+  mod: mod1
+  key: r
+
+window-margins: true
+window-margin-size: 3
