@@ -4,10 +4,10 @@
 
 - kitty
 - amethyst
-- zinit
-- p10k
-- atuin
-- Dbz/kube - aliases
+- nushell
+- carapace
+- starship
+- zoxide
 
 ## Keyboard
 

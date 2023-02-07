@@ -1,4 +1,4 @@
 
 #!/bin/bash
 
-cp $HOME/.config/terminal/amethyst/.amethyst.yml $HOME/
+cp $HOME/.config/dev/amethyst/.amethyst.yml $HOME/
