@@ -1,0 +1,62 @@
+set surround
+set commentary
+set sneak
+set ignorecase smartcase
+
+set which-key
+set notimeout
+
+" 0 -> first non-blank character
+map 0 ^
+
+" No annoying sound on errors
+set visualbell
+
+" system clipboard
+set clipboard+=unnamed
+set clipboard+=ideaput
+
+" nerd tree
+set NERDTree
+let g:NERDTreeMapActivateNode='l'
+
+set idearefactormode=keep
+
+" buffer navigation
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
+" which key
+let mapleader=" "
+map <leader>c <Action>(CloseContent)
+nnoremap <leader>w :update<cr>
+map <leader>n :NERDTreeFocus<CR>
+map <leader>f <Action>(SearchEverywhere)
+map <leader>ls <Action>(RenameElement)
+map <leader>lE <Action>(GotoPreviousError)
+map <leader>le <Action>(GotoNextError)
+map <leader>bl <Action>(MoveEditorToOppositeTabGroup)
+map <leader>bv <Action>(SplitVertically)
+
+let g:WhichKey_DefaultDelay = 0
+let g:WhichKeyDesc_close = "<Space>c  Close"
+let g:WhichKeyDesc_save = "<Space>w  Save"
+let g:WhichKeyDesc_search = "<Space>f  Search"
+let g:WhichKeyDesc_nerd = "<Space>n  NERDTree"
+let g:WhichKeyDesc_lsp= "<Space>l  lsp"
+let g:WhichKeyDesc_lsp_rename= "<Space>ls  Rename Symbol"
+let g:WhichKeyDesc_lsp_preerror= "<Space>lE  Previous Error"
+let g:WhichKeyDesc_lsp_nexterror= "<Space>le  Next Error"
+let g:WhichKeyDesc_buffer= "<Space>b  buffer"
+let g:WhichKeyDesc_buffer_splitvertically= "<Space>bv  Split Vertically"
+let g:WhichKeyDesc_buffer_movetoopposite= "<Space>bl  Move to Opposite"
+
+" tab
+nnoremap L <Action>(NextTab)
+nnoremap H <Action>(PreviousTab)
+
+inoremap jk <Esc>

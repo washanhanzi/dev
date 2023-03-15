@@ -1,22 +1,11 @@
 {
-  "title": "Change control when pressed alone ",
+  "title": "Change left control to option+shift",
   "rules": [
     {
-      "description": "left_control is caps_lock when pressed alone",
+      "description": "change left control to option+shift",
       "manipulators": [
         {
           "type": "basic",
-          "conditions":[
-            {
-              "type":"device_if",
-              "identifiers":[
-                {
-                  "is_keyboard": true,
-                  "vendor_id": 1278
-                }
-              ]
-            }
-          ],
           "from": {
             "key_code": "left_control",
             "modifiers": {
@@ -27,14 +16,22 @@
           },
           "to": [
             {
-              "key_code": "left_control"
+              "key_code": "left_option"
+              "modifiers":[
+                "left_shift"
+              ]
             }
           ],
-          "to_if_alone": [
+          "conditions":[
             {
-              "key_code": "caps_lock"
+              "type":"device_if",
+              "identifiers":[
+                {
+                  "is_built_in_keyboard": true
+                }
+              ]
             }
-          ]
+          ],
         }
       ]
     }

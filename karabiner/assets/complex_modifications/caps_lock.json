@@ -6,17 +6,6 @@
       "manipulators": [
         {
           "type": "basic",
-          "conditions":[
-            {
-              "type":"device_if",
-              "identifiers":[
-                {
-                  "is_keyboard": true,
-                  "device_id": 4294969601
-                }
-              ]
-            }
-          ],
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
@@ -34,9 +23,20 @@
             {
               "key_code": "caps_lock"
             }
+          ],
+          "conditions":[
+            {
+              "type":"device_if",
+              "identifiers":[
+                {
+                  "is_built_in_keyboard": true,
+                }
+              ]
+            }
           ]
         }
       ]
     }
   ]
 }
+
