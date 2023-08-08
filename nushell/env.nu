@@ -19,21 +19,21 @@ def create_right_prompt [] {
 }
 
 # Use nushell functions to define your right and left prompt
-let-env PROMPT_COMMAND = { create_left_prompt }
-let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
+$env.PROMPT_COMMAND = { create_left_prompt }
+$env.PROMPT_COMMAND_RIGHT = { create_right_prompt }
 
 # The prompt indicators are environmental variables that represent
 # the state of the prompt
-let-env PROMPT_INDICATOR = { "〉" }
-let-env PROMPT_INDICATOR_VI_INSERT = { ": " }
-let-env PROMPT_INDICATOR_VI_NORMAL = { "〉" }
-let-env PROMPT_MULTILINE_INDICATOR = { "::: " }
+$env.PROMPT_INDICATOR = { "〉" }
+$env.PROMPT_INDICATOR_VI_INSERT = { ": " }
+$env.PROMPT_INDICATOR_VI_NORMAL = { "〉" }
+$env.PROMPT_MULTILINE_INDICATOR = { "::: " }
 
 # Specifies how environment variables are:
 # - converted from a string to a value on Nushell startup (from_string)
 # - converted from a value back to a string when running external commands (to_string)
 # Note: The conversions happen *after* config.nu is loaded
-let-env ENV_CONVERSIONS = {
+$env.ENV_CONVERSIONS = {
   "PATH": {
     from_string: { |s| $s | split row (char esep) | path expand -n }
     to_string: { |v| $v | path expand -n | str join (char esep) }
@@ -47,44 +47,53 @@ let-env ENV_CONVERSIONS = {
 # Directories to search for scripts when calling source or use
 #
 # By default, <nushell-config-dir>/scripts is added
-let-env NU_LIB_DIRS = [
+$env.NU_LIB_DIRS = [
     ($nu.config-path | path dirname | path join 'scripts')
 ]
 
 # Directories to search for plugin binaries when calling register
 #
 # By default, <nushell-config-dir>/plugins is added
-let-env NU_PLUGIN_DIRS = [
+$env.NU_PLUGIN_DIRS = [
     ($nu.config-path | path dirname | path join 'plugins')
 ]
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
-# let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
+# $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
+
+# ruby
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/opt/ruby/bin')
+$env.GEM_HOME = '/Users/jingyu/.gem'
+$env.PATH = ($env.PATH | split row (char esep) | append '/Users/jingyu/.gem/bin')
 
 # homebrew
-let-env PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')
+
+# anaconda
+# $env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/anaconda3/bin')
 
 # go
-let-env PATH = ($env.PATH | split row (char esep) | append '/usr/local/go/bin')
+$env.PATH = ($env.PATH | split row (char esep) | append '/Users/jingyu/go/bin')
+$env.PATH = ($env.PATH | split row (char esep) | append '/usr/local/go/bin')
 
 # bin
-let-env PATH = ($env.PATH | split row (char esep) | append '/usr/local/bin/')
+$env.PATH = ($env.PATH | split row (char esep) | append '/usr/local/bin/')
 
 # vscode
-let-env PATH = ($env.PATH | split row (char esep) | append '/Applications/Visual Studio Code.app/Contents/Resources/app/bin')
+$env.PATH = ($env.PATH | split row (char esep) | append '/Applications/Visual Studio Code.app/Contents/Resources/app/bin')
 
 # rust
-let-env PATH = ($env.PATH | split row (char esep) | append '/Users/jingyu/.cargo/bin')
+$env.PATH = ($env.PATH | split row (char esep) | append '/Users/jingyu/.cargo/bin')
 
 # proxy
-let-env http_proxy = 'http://localhost:7890'
-let-env https_proxy = 'http://localhost:7890'
-let-env NO_PROXY = 'localhost,127.0.0.1,::1'
+$env.http_proxy = 'http://localhost:7890'
+$env.https_proxy = 'http://localhost:7890'
+$env.NO_PROXY = 'localhost,127.0.0.1,::1'
 
 #pnpm
 let pnpm_home = '/Users/jingyu/Library/pnpm'
-let-env PNPM_HOME = $pnpm_home
-let-env PATH = ($env.PATH | split row (char esep) | append $pnpm_home)
+$env.PNPM_HOME = $pnpm_home
+$env.PATH = ($env.PATH | split row (char esep) | append $pnpm_home)
 
 # starship
 mkdir ~/.cache/starship
@@ -93,3 +102,11 @@ starship init nu | save -f ~/.cache/starship/init.nu
 # zoxide
 zoxide init nushell | save -f ~/.zoxide.nu
 
+# android
+$env.ANDROID_HOME = '/Users/jingyu/Library/Android/sdk'
+$env.PATH = ($env.PATH | split row (char esep) | append '/Users/jingyu/Library/Android/sdk/emulator')
+$env.PATH = ($env.PATH | split row (char esep) | append '/Users/jingyu/Library/Android/sdk/platform-tools')
+
+# flutter
+$env.PATH = ($env.PATH | split row (char esep) | append '/Users/jingyu/flutter/bin')
+$env.PATH = ($env.PATH | split row (char esep) | append '/Users/jingyu/.pub-cache/bin')

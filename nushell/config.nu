@@ -297,7 +297,7 @@ let carapace_completer = {|spans|
 
 
 # The default config record. This is where much of your global configuration is setup.
-let-env config = {
+$env.config = {
   ls: {
     use_ls_colors: true # use the LS_COLORS environment variable to colorize output
     clickable_links: true # enable or disable clickable links. Your terminal has to support links.
@@ -656,7 +656,7 @@ let-env config = {
       event: {
         send: ExecuteHostCommand
         cmd: "commandline (
-            ls /Users/jingyu/Github/ 
+            ls /Users/jingyu/Github/
               | each { |it| $it.name }
               | uniq
               | reverse
@@ -664,7 +664,7 @@ let-env config = {
               | fzf --read0 --layout=reverse --height=40%
               | decode utf-8
               | str trim
-          ) --append" 
+          ) --append"
         }
     }
   ]
@@ -676,9 +676,19 @@ source ~/.cache/starship/init.nu
 # nvim
 alias vim = nvim
 
+# finder
+alias finder = /usr/bin/open
+
 # use fzf to find command history
 alias hisf = commandline (history | each { |it| $it.command } | uniq | reverse | str join (char -i 0) | fzf --read0 --layout=reverse --height=40% -q (commandline) | decode utf-8 | str trim)
 
 # zoxide
 source ~/.zoxide.nu
 alias cd = z
+
+# use macos default shell with open
+# def nuopen [arg, --raw (-r)] { if $raw { open -r $arg } else { open $arg } }
+# alias open = ^open
+
+# k8s alias
+use /users/jingyu/.config/dev/nushell/scripts/kubernetes.nu *

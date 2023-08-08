@@ -50,7 +50,8 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
-format = '\[[$symbol$branch]($style)\]'
+format = '[$branch(:$remote_branch)]($style) '
+symbol = ' '
 
 [git_commit]
 commit_hash_length = 7
@@ -63,6 +64,7 @@ format = '([\[$all_status$ahead_behind\]]($style))'
 [golang]
 format = '\[[$symbol($version)]($style)\]'
 detect_folders = ['starship']
+symbol = "🐹 "
 
 [guix_shell]
 format = '\[[$symbol]($style)\]'
@@ -111,6 +113,7 @@ format = '\[[$symbol$state( \($name\))]($style)\]'
 
 [nodejs]
 format = '\[[$symbol($version)]($style)\]'
+symbol = "[⬢](bold green) "
 
 [ocaml]
 format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
@@ -153,6 +156,7 @@ format = '\[[$symbol($version)]($style)\]'
 
 [rust]
 format = '\[[$symbol($version)]($style)\]'
+symbol = "🦀 "
 
 [scala]
 format = '\[[$symbol($version)]($style)\]'
