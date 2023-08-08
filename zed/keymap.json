@@ -1,0 +1,31 @@
+[
+  //buffer navigation
+  {
+    "context": "Editor",
+    "bindings": {
+      "shift-h": "pane::ActivatePrevItem",
+      "shift-l": "pane::ActivateNextItem"
+    }
+  },
+  //jk: exit insert mode
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore"
+    }
+  },
+  //gd: go to definition
+  {
+    "context": "Editor && vim_operator == g",
+    "bindings": {
+      "d": "editor::GoToDefinition"
+    }
+  },
+  //not work
+  {
+    "context": "Editor && vim_operator == space",
+    "bindings": {
+      "w": "workspace::Save"
+    }
+  }
+]

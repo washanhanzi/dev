@@ -1,0 +1,11 @@
+{
+  "theme": "Ayu Dark",
+  "vim_mode": true,
+  "buffer_font_size": 15,
+  "autosave": "on_focus_change",
+  "format_on_save": "on",
+  "buffer_font_family": "FiraCode Nerd Font",
+  "terminal": {
+    "font_family": "FiraCode Nerd Font"
+  }
+}
