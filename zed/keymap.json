@@ -1,31 +1,58 @@
 [
-  //buffer navigation
   {
-    "context": "Editor",
+    "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "shift-h": "pane::ActivatePrevItem",
-      "shift-l": "pane::ActivateNextItem"
+      // put key-bindings here if you want them to work in normal & visual mode
     }
   },
-  //jk: exit insert mode
   {
-    "context": "Editor && vim_mode == insert",
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
+      // put key-bindings here if you want them to work only in normal mode
+      //buffer navigation
+      "shift-h": "pane::ActivatePrevItem",
+      "shift-l": "pane::ActivateNextItem",
+      //save buffer
+      "space w": "workspace::Save",
+      //close buffer
+      "space q": "pane::CloseActiveItem",
+      //pane navigation
+      "ctrl-h": "project_panel::ToggleFocus",
+      //hover
+      "shift-k": "editor::Hover",
+      //go to definition
+      "g d": "editor::GoToDefinition",
+      //command palette
+      "space /": "command_palette::Toggle",
+      //toggle outline
+      "space o": "outline::Toggle"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {
+      // visual, visual line & visual block modes
+      // comment
+      "g c": "editor::ToggleComments"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work in insert mode
       "j k": "vim::NormalBefore"
     }
   },
-  //gd: go to definition
+  // Proect Panel
   {
-    "context": "Editor && vim_operator == g",
+    "context": "ProjectPanel",
     "bindings": {
-      "d": "editor::GoToDefinition"
-    }
-  },
-  //not work
-  {
-    "context": "Editor && vim_operator == space",
-    "bindings": {
-      "w": "workspace::Save"
+      "l": "project_panel::Open",
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrev",
+      "ctrl-l": "project_panel::ToggleFocus",
+      "ctrl-y": "project_panel::Copy",
+      "y": "project_panel::CopyRelativePath"
     }
   }
 ]
