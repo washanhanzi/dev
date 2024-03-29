@@ -1,0 +1,29 @@
+version: "3.1"
+
+services:
+  postgres:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C"
+    volumes:
+      - postgres-vol:/var/lib/postgresql/data/
+    command: postgres -c listen_addresses='*'
+
+  redis:
+    image: redis
+    container_name: redisRepo
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-vol:/data
+
+
+volumes:
+  postgres-vol:
+  redis-vol:
